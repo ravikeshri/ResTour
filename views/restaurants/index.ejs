@@ -1,0 +1,26 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>Welcome to ResTour!</h1>
+      <p>Delicious Places to Visit</p>
+      <a class="btn btn-large btn-primary" href="/restaurants/new">Add New Restaurant</a>
+    </div>
+  </header>
+
+  <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+    <% restaurants.forEach(function(restaurant) { %>
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+          <img src="<%= restaurant.image %>" alt="<%= restaurant.name %>">
+          <div class="caption">
+            <h4><%= restaurant.name %></h4>
+          </div>
+          <a href="/restaurants/<%= restaurant._id %>" class="btn btn-primary">More Info</a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>
+<%- include("../partials/footer") %>
